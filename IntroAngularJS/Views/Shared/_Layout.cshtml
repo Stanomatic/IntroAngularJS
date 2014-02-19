@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+@*AngularJS needs to know where to start processing. Put the hooks in with data-ng-app or just ng-app*@
+<html data-ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Introduction to AngularJS</title>
+
+    <link id="themestyle" rel="stylesheet" type="text/css" href="/Content/bootstrap.css">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>                
+                @Html.ActionLink("Introduction to AngularJS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                    <li>@Html.ActionLink("Contacts", "Index", "Contacts", new { area = "Contacts" }, new { tabindex = "-1" })</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" id="examplesdrop" href="#" data-toggle="dropdown">Examples<span class="caret"></span></a>
+                        <ul class="dropdown-menu" aria-labelledby="examples">
+                            <li><a tabindex="-1" href="/">Go Home</a></li>
+                            <li><a tabindex="-1" href="#/hello">00 Hello World</a></li>
+                            <li><a tabindex="-1" href="#/slider">01 Slider - Two way binding</a></li>
+                            <li><a tabindex="-1" href="#/controller">02 Controller</a></li>
+                            <li><a tabindex="-1" href="#/mini">03 Minification</a></li>
+                            <li><hr /></li>
+                            <li><a tabindex="-1" href="#/providers">Providers</a></li>
+                            <li><hr /></li>
+                            <li><a tabindex="-1" href="#/directiveslider">Directive Slider</a></li>
+                            <li><a tabindex="-1" href="#/directivesliderisoscope">Directive Slider Isolated Scope</a></li>
+                            <li><hr /></li>
+                            <li><a tabindex="-1" href="#/customfilter">Custom Filters</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="http://www.angularjs.org" target="_blank">Built with: &nbsp;<img src="~/Content/images/AngularJS-small.png"></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <div data-ng-controller="demoController">
+                @* Pure HTML *@
+                @*<p data-ng-model="theDate">; {{theDate | date:'yyyy'}} - Introduction to AngularJS</p>*@
+
+
+                @*Mixing with Razor
+                  Notice the underscores defining the model, "data_ng_model", when working with MVC Razor. 
+                  Razor engine will render to "data-ng-model" *@
+                 @Html.Label("{{theDate | date:'yyyy'}} - Introduction to AngularJS", new { data_ng_model = "theDate" })
+            </div>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/angular")
+    <script src="~/Scripts/app/app.js"></script>
+    <script src="~/Scripts/app/controllers/controllers.js"></script>
+    <script src="~/Scripts/app/services/services.js"></script>
+    <script src="~/Scripts/app/directives/directives.js"></script>
+    <script src="~/Scripts/app/filter/filters.js"></script>
+</body>
+</html>

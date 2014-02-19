@@ -1,0 +1,83 @@
+﻿<br />
+<br />
+<form name="form">
+    <fieldset class="form">
+        <div class="form-group">
+            <div class="control-label">
+                <label title="Full Name">Full Name:</label>
+            </div>
+            <div class="controls">
+                <input type="text" placeholder="Full Name" class="form-control" name="fullName" ng-model="contact.fullName" ng-maxlength=20 required />
+            </div>
+            <div class="field-validation-error">
+                <span ng-show="form.fullName.$error.required && form.fullName.$dirty">Full Name is required.</span>
+                <span ng-show="form.fullName.$error.maxlength && form.fullName.$dirty">Full Name cannot exceed 20 characters.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label">
+                <label>Email:</label>
+                <div class="controls">
+                    <input type="email" placeholder="Email" class="form-control" name="email" ng-model="contact.email" /> @*AngularJS email validation, set type to email.*@
+                </div>
+                <div class="field-validation-error">
+                    <span ng-show="form.email.$error.email && form.email.$dirty">Correct email format needed.</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label">
+                <label>Phone:</label>
+            </div>
+            <div class="controls">
+                @*Change the ng-maxlength=12 to 10 then edit. Phone number will not show up on an edit. This has caught me a few times debugging where the data is.*@
+                <input type="text" placeholder="Phone" class="form-control" name="phone" ng-maxlength=12 ng-model="contact.phone" sm-number-optional-decimal accuracy="0" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label">
+                <label>Zip:</label>
+            </div>
+            <div class="controls">
+                <input type="text" placeholder="Zip" class="form-control" name="zip" ng-model="contact.zip" sm-number-optional-decimal accuracy="0" />
+            </div>
+        </div>
+
+        <input class="btn btn-primary" type="button" value="Save" ng-click="saveContact()" ng-disabled="form.$invalid" />
+        <input type="hidden" ng-model="contact.id" />
+        <br />
+        <br />
+    </fieldset>
+</form>
+<div class="form-group">
+    <div class="control-label">
+        <label>Search:</label>
+    </div>
+    <div class="controls">
+        <input type="text" placeholder="Search" class="form-control" name="search" ng-model="search.$" /> @*ng-model="search.$" ng-model="search.fullName" ng-model="search.phone"*@
+    </div>
+</div>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Zip</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="contact in contacts | filter:search:strict | orderBy:'fullName'">
+            <td>{{ contact.fullName | nameCase}}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>{{ contact.zip }}</td>
+            <td>
+                <a href="#" ng-click="edit(contact.id)">edit</a> |
+                <a href="#" ng-click="delete(contact.id)">delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

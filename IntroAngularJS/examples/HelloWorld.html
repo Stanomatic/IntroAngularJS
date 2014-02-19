@@ -1,0 +1,33 @@
+﻿<!-- At the very minimum AngularJS needs "ng-app" or you can use the
+valid HTML5 "data" attribute "data-ng-app" <html lang="en" data-ng-app>.
+AngularJS's designator is ng-...
+Ensure reference "angular.min.js" or "angular.js".
+Finally include the ng-controller attribute in the area to utilize AngularJS.
+-->
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h1 ng-controller="HelloWorldMessageCtrl">{{helloWorldMessage}} and hello to {{nameOfUserGroup}}</h1>
+        </div>
+    </div>
+    <script src="../Scripts/angular.min.js"></script>
+    <script type="text/javascript">
+        //Older way of declaring a controller. Later we will define the controller the more prevalant way.
+        function HelloWorldMessageCtrl($scope) {
+            //$scope is the glue between the controller and view.
+            $scope.helloWorldMessage = "Hello World";
+            $scope.nameOfUserGroup = 'User Group';
+        }
+    </script>
+</body>
+</html>
+<!-- Experiement by moving ng-app inside the div tag before h1 tag. The div
+tag and children are still accessible by the AngularJS framework.
+-->

@@ -1,0 +1,42 @@
+﻿<br />
+<br />
+<h1>{{properController}}</h1>
+<br />
+<br />
+<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+<span style='color:#004a43; '>&lt;!doctype html></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>html</span><span style='color:#274796; '> </span><span style='color:#074726; '>lang</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"en"</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>head</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>meta</span><span style='color:#274796; '> </span><span style='color:#074726; '>charset</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"utf-8"</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>title</span><span style='color:#a65700; '>></span>Controller creation<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>title</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>head</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>body</span><span style='color:#274796; '> ng-app</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"app"</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>div</span><span style='color:#274796; '> ng-controller</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"demoController"</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>h1</span><span style='color:#a65700; '>></span><code ng-non-bindable>{{properController}}</code><span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>h1</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>div</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>script src="angular.min.js"</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>script</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>script type="text/javascript"</span><span style='color:#a65700; '>></span>
+<span style='color:#696969; '>// Safe for minification.</span>
+<span style='color:#800000; font-weight:bold; '>var</span> app <span style='color:#808030; '>=</span> angular<span style='color:#808030; '>.</span>module<span style='color:#808030; '>(</span><span style='color:#0000e6; '>'app'</span><span style='color:#808030; '>,</span> <span style='color:#808030; '>[</span><span style='color:#808030; '>]</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+app<span style='color:#808030; '>.</span>controller<span style='color:#808030; '>(</span><span style='color:#0000e6; '>'demoController'</span><span style='color:#808030; '>,</span> <span style='color:#808030; '>[</span><span style='color:#0000e6; '>'$scope'</span><span style='color:#808030; '>,</span> <span style='color:#800000; font-weight:bold; '>function</span> <span style='color:#808030; '>(</span>$scope<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+<span style='color:#696969; '>// Controller message</span>
+$scope<span style='color:#808030; '>.</span>properController <span style='color:#808030; '>=</span> <span style='color:#0000e6; '>'Common pattern constructing a controller'</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span><span style='color:#808030; '>]</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<br />
+<span style='color:#696969; '>// A less common pattern is a named controller function.</span>
+<span style='color:#696969; '>//function namedControlerFunction($scope) {</span>
+<span style='color:#696969; '>//    // Controller message</span>
+<span style='color:#696969; '>//    $scope.properController = 'This controller will not save much space when minifiying.';</span>
+<span style='color:#696969; '>//}</span>
+<span style='color:#696969; '>//app.controller('demoController', namedControlerFunction);</span>
+<span style='color:#696969; '>// Less common way of declaring a controller.</span>
+<span style='color:#696969; '>//function HelloWorldMessageCtrl($scope) {</span>
+<span style='color:#696969; '>//    &lt;!-- $scope is the glue between the controller and view.--></span>
+<span style='color:#696969; '>//    $scope.helloWorldMessage = "Hello World";</span>
+<span style='color:#696969; '>//    $scope.nameOfUserGroup = 'User Group';</span>
+<span style='color:#696969; '>//}</span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>script</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>body</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>html</span><span style='color:#a65700; '>></span>
+</pre>
+<iframe width="100%" height="300" src="http://jsfiddle.net/Stanomatic/Z4wf5/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>

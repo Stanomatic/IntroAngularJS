@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/angular.min.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="panel panel-default" ng-app="app">
+        <div class="panel-body">
+            <div ng-app="app">
+                <p>
+                    Enter your first and last name all lower case. The custom filter nameCase will upper case first and last name.
+                    <br />
+                    <label>First and Last Name:</label> {{firstLast}}.
+                    <br />
+                    <input type="text" ng-model="firstLast" />
+                    <br />
+                    <label>Name with proper casing:</label> {{firstLast | nameCase}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // FOLDER SCRIPTS | FOLDER filters | FILE filters.js
+        (function () {
+            'use strict';
+            var app = angular.module('app', []);
+            app.filter('nameCase', function () {
+                return function (input) {
+                    input = input || ''; // Error check against undefined.
+                    var fullName = input.split(' ');
+                    for (var i = 0; i < fullName.length; i++) {
+                        fullName[i] = fullName[i].toLowerCase();
+                        fullName[i] = fullName[i].charAt(0).toUpperCase() + fullName[i].slice(1);
+                    }
+                    return fullName.join(' ');
+                };
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<br />
+<h1>{{helloWorldMessage}} and hello to {{nameOfUserGroup}}</h1>
+<br />
+<!--http://tohtml.com/-->
+<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+<span style='color:#696969; '>&lt;!-- At the very minimum AngularJS needs "ng-app" or you can use the</span>
+<span style='color:#696969; '>valid HTML5 "data" attribute "data-ng-app" &lt;html lang="en" data-ng-app>. </span>
+<span style='color:#696969; '>AngularJS's designator is ng-...</span>
+<span style='color:#696969; '>Ensure reference "angular.min.js" or "angular.js".</span>
+<span style='color:#696969; '>Finally include the ng-controller attribute in the area to utilize AngularJS.</span>
+<span style='color:#696969; '>--></span>                                                                                                           
+<span style='color:#004a43; '>&lt;!doctype HTML></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>html</span><span style='color:#274796; '> </span><span style='color:#074726; '>lang</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"en"</span><span style='color:#274796; '> ng-app</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>head</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>meta</span><span style='color:#274796; '> </span><span style='color:#074726; '>charset</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"utf-8"</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>title</span><span style='color:#a65700; '>></span>Hello World<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>title</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>head</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>body</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>div</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>h1</span><span style='color:#274796; '> ng-controller</span><span style='color:#808030; '>=</span><span style='color:#0000e6; '>"HelloWorldMessageCtrl"</span><span style='color:#a65700; '>></span><code ng-non-bindable>{{helloWorldMessage}} and hello to {{nameOfUserGroup}}</code><span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>h1</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>div</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>script src="angular.min.js"</span><span style='color:#a65700; '>></span><span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>script</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;</span><span style='color:#800000; font-weight:bold; '>script type="text/javascript"</span><span style='color:#a65700; '>></span>
+<span style='color:#696969; '> // Older way of declaring a controller. Later we will define the controller the more prevalant way.</span><span style='color:#696969; '></span>
+<span style='color:#800000; font-weight:bold; '>function</span> HelloWorldMessageCtrl<span style='color:#808030; '>(</span>$scope<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+<span style='color:#696969; '>// $scope is the glue between the controller and view.</span><span style='color:#696969; '></span>
+        $scope<span style='color:#808030; '>.</span>helloWorldMessage <span style='color:#808030; '>=</span> <span style='color:#800000; '>"</span><span style='color:#0000e6; '>Hello World</span><span style='color:#800000; '>"</span><span style='color:#800080; '>;</span>
+        $scope<span style='color:#808030; '>.</span>nameOfUserGroup <span style='color:#808030; '>=</span> <span style='color:#0000e6; '>'User Group'</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>script</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>body</span><span style='color:#a65700; '>></span>
+<span style='color:#a65700; '>&lt;/</span><span style='color:#800000; font-weight:bold; '>html</span><span style='color:#a65700; '>></span>
+<span style='color:#696969; '>&lt;!-- Experiement by moving ng-app inside the div tag before h1 tag. The div </span>
+<span style='color:#696969; '>tag and children are still accessible by the AngularJS framework.</span>
+<span style='color:#696969; '>--></span>
+</pre>
+<br />
+<iframe width="100%" height="300" src="http://jsfiddle.net/Stanomatic/g4Rvg/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>

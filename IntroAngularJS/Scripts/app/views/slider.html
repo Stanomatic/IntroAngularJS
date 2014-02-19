@@ -1,0 +1,25 @@
+﻿<br />
+<br />
+<div>
+    Test in Chrome and Firefox. IE10+ slider does not work. for<br />
+    IE10 support check out <a href="https://github.com/angular-ui/ui-slider" target="_blank">
+    https://github.com/angular-ui/ui-slider</a>. <br /><br />
+    Move the slider to see AngularJS two way binding.
+    <br />Add the angularjs library, then the ng-app attribute to your parent tag.
+    <br />Notice "aNumber" is the ng-model attached to the slider. Bind to "aNumber"
+    <br />using double curly braces, OR, using ng-bind attribute.
+    <br />
+    <br />
+    <label for="Number">Number:</label> {{aNumber}}. Binding with curly braces.
+    <br />
+    <input type="range" ng-model="aNumber"
+           value="100" min="100" max="2000" step="25"
+           style="width: 140px">
+    <br />Number <span ng-bind="aNumber">2000</span>. Binding using ng-bind.
+    <br />
+    <br />
+    Change the number in the text box to demonstrate two way binding.<br />
+    <input type="text" ng-model="aNumber" min="100" max="2000" value="100">
+</div>
+<br />
+<iframe width="100%" height="300" src="http://jsfiddle.net/Stanomatic/Be9M7/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>

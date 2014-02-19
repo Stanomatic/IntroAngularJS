@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/angular.min.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="panel panel-default" ng-app="app">
+        <div class ="panel-body" ng-controller="providersController">
+            <p>
+                The provider Factory is the most widely used service. The Factory adds the following abilities:<br />
+                <ul>
+                    <li>to use other services (have dependencies)</li>
+                    <li>service initialization</li>
+                    <li>delayed/lazy initialization</li>
+                </ul>
+            </p>
+            <br />
+            My starting value: {{theCount}}
+            <br />
+            <button class="btn btn-sm btn-primary" ng-click="factoryIncrease(1)">1 +</button>
+            <button class="btn btn-lg btn-success" ng-click="factoryIncrease(5)">5 +</button>
+            <button class="btn btn-lg btn-success" ng-click="factoryDecrease(5)">5 -</button>
+            <button class="btn btn-sm btn-primary" ng-click="factoryDecrease(1)">1 -</button>
+            <br />Increment total = {{providerFactory.theCount}}
+        </div>
+    </div>
+    <script>
+        // FOLDER SCRIPTS | FILE app
+        (function () {
+            'use strict';
+            var app = angular.module('app', []); // AngularJS dependency injection.
+
+            //var app = angular.module('app');
+            // SERVICES
+            // FOLDER SCRIPTS | FOLDER services | FILE services.js
+            app.value('theCount', 10);
+            app.factory('providerFactory', ['theCount', function (theCount) {
+                return {
+                    theCount: theCount,
+                    // The business logic
+                    increment: function (quantity) {
+                        this.theCount += quantity;
+                    },
+                    decrement: function (quantity) {
+                        this.theCount -= quantity;
+                    }
+                };
+            }]);
+
+            // CONTROLLERS
+            // FOLDER SCRIPTS | FOLDER controllers | FILE controllers.js
+            // Main controller
+            app.controller('providersController', ['$scope', 'theCount', 'providerFactory',
+            function ($scope, theCount, providerFactory) {
+                // Both factory and service will use theCount
+                $scope.theCount = theCount;
+                // For factory example
+                $scope.providerFactory = providerFactory;
+                $scope.factoryIncrease = function (quantity) {
+                    $scope.providerFactory.increment(quantity);
+                }
+                $scope.factoryDecrease = function (quantity) {
+                    $scope.providerFactory.decrement(quantity);
+                };
+
+            }]);
+        })();
+    </script>
+</body>
+</html>

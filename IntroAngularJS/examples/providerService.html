@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/angular.min.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="panel panel-default" ng-app="app">
+        <div class="panel-body" ng-controller="providersController">
+            <p>Using a provider <strong>Service</strong> to increment a number. Two controllers are using one <strong>Service</strong>. A provider <strong>Service</strong> can be shared between controllers. A provider <strong>Value</strong> starts the count.</p>
+            <br />My starting value: {{theCount}}
+            <br />
+            <button class="btn btn-sm btn-primary" ng-click="serviceIncrease()">1 +</button>
+            <span ng-controller="providerController2">
+                <button class="btn btn-lg btn-success" ng-click="serviceIncrease()">5 +</button>
+                <button class="btn btn-lg btn-success" ng-click="serviceDecrease()">5 -</button>
+            </span>
+
+            <button class="btn btn-sm btn-primary" ng-click="serviceDecrease()">1 -</button>
+            <br />Increment total = {{providerService.theCount}}
+        </div>
+    </div>
+    <script>
+        // FOLDER SCRIPTS | FILE app
+        (function () {
+            'use strict';
+            var app = angular.module('app', []); // AngularJS dependency injection.
+
+
+            //var app = angular.module('app');
+            // SERVICES
+            // FOLDER SCRIPTS | FOLDER services | FILE services.js
+            app.value('theCount', 10);
+            app.service('providerService', function (theCount) {
+                this.theCount = theCount;
+                this.increment = function (quantity) {
+                    this.theCount += quantity;
+                };
+                this.decrement = function (quantity) {
+                    this.theCount -= quantity;
+                };
+            });
+
+            // CONTROLLERS
+            // FOLDER SCRIPTS | FOLDER controllers | FILE controllers.js
+            // Main controller
+            app.controller('providersController', ['$scope', 'theCount', 'providerService',
+            function ($scope, theCount, providerService) {
+
+                $scope.theCount = theCount;
+                $scope.providerService = providerService;
+                $scope.serviceIncrease = function () {
+                    $scope.providerService.increment(1);
+                };
+                $scope.serviceDecrease = function () {
+                    $scope.providerService.decrement(1);
+                };
+                
+            }]);
+
+            // Sub controller
+            app.controller('providerController2', ['$scope', 'providerService', function ($scope, providerService) {
+                $scope.serviceIncrease = function () {
+                    providerService.increment(5);
+                };
+                $scope.serviceDecrease = function () {
+                    providerService.decrement(5);
+                };
+            }]);
+        })();
+    </script>
+
+</body>
+</html>

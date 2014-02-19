@@ -1,0 +1,15 @@
+﻿<br />
+<br />
+<br />
+<h1>{{whatAmI}} type. My code is safe for minification.</h1>
+<br />
+<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+<span style='color:#696969; '>&lt;!-- Prepare your code for minification </span><span style='color:#5555dd; '>http://en.wikipedia.org/wiki/Minification_</span><span style='color:#696969; '>(programming)  --></span>
+angular<span style='color:#008c00; '>.</span>module('unsafeAppMinify').controller('MyUberCtrl', function ($scope, $http) { ... });
+<br />
+<span style='color:#696969; '>&lt;!-- Create an array. Parameters in quotes then add a function with the same params. Minification safe. --></span>
+angular<span style='color:#008c00; '>.</span>module('safeAppMinify').controller('MyUberCtrl', ['$scope', '$http', function ($scope, $http) { ... }]);
+</pre>
+<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+// Some online minifier applicatons: http://jscompress<span style='color:#008c00; '>.</span>com/, http://www<span style='color:#008c00; '>.</span>minifier<span style='color:#008c00; '>.</span>com/ and http://marijnhaverbeke<span style='color:#008c00; '>.</span>nl/uglifyjs<span style='color:#008c00; '>.</span>
+</pre>

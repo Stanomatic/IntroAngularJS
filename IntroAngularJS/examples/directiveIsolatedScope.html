@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/angular.min.js"></script>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="panel panel-default" ng-app="app">
+        <div class="panel-body" ng-controller="demoController">
+            <p>Test in Chrome and Firefox. IE10+ slider does not work. Move the slider to see AngularJS two way binding. This was created using a directive and isolated scope.</p>
+            <dm-slider-isolated-scope the-number='firstNumber'> The attribute and original content should be replaced by setting replace:true in the directive.</dm-slider-isolated-scope><br />
+            <dm-slider-isolated-scope the-number='secondNumber'> The attribute and original content should be replaced by setting replace:true in the directive.</dm-slider-isolated-scope><br />
+            <dm-slider-isolated-scope the-number='thirdNumber'> The attribute and original content should be replaced by setting replace:true in the directive.</dm-slider-isolated-scope><br />
+        </div>
+    </div>
+    <script>
+        // FOLDER SCRIPTS | FILE app
+        (function () {
+            'use strict';
+            var app = angular.module('app', []);
+
+            // CONTROLLERS
+            // FOLDER SCRIPTS | FOLDER controllers | FILE controllers.js
+            // Main controller
+            app.controller('demoController', ['$scope', function ($scope) {
+                $scope.aNumber = 100;
+                $scope.firstNumber = 100;
+                $scope.secondNumber = 1500;
+                $scope.thirdNumber = 2000;
+            }]);
+            app.directive('dmSliderIsolatedScope', function () {
+                return {
+                    restrict: 'AE',
+                    replace: true,
+                    template: "<div><input type='range' ng-model='aNumber' value='100' min='100' max='2000' step='25' style='width: 140px'><br /> " +
+                        "<input type='text' ng-model='aNumber' min='100' max='2000' value='100'></div>",
+                    // Adding scope: {} creates isoloated scope. Sliders will contain their own values.
+                    // Isolated scope using an attribute theNumber - the-number.
+                    scope: {
+                        aNumber: "=theNumber"
+                        // theNumber (the-number inside HTML) is an attribute where we pass in a $scope property and then assign to our
+                        // direcitive ng-model='aNumber'
+                        // Comment out scope: {aNumber: "=theNumber"} and all sliders are identical.
+                    }
+                };
+            });
+        })();
+    </script>
+</body>
+</html>

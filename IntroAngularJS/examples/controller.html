@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Controller creation</title>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body ng-app="app">
+    <div class="panel panel-default">
+        <div class="panel-body" ng-controller="demoController">
+            <h1>{{properController}}</h1>
+        </div>
+    </div>
+    <script src="../Scripts/angular.min.js"></script>
+    <script type="text/javascript">
+        // Safe for minification.
+        var app = angular.module('app', []);
+        app.controller('demoController', ['$scope', function ($scope) {
+            // Controller message
+            $scope.properController = 'Common pattern constructing a controller';
+        }]);
+
+
+        // A less common pattern is a named controller function.
+        //function namedControlerFunction($scope) {
+        //    // Controller message
+        //    $scope.properController = 'This controller will not save much space when minifiying.';
+        //}
+        //app.controller('demoController', namedControlerFunction);
+        // Less common way of declaring a controller.
+        //function HelloWorldMessageCtrl($scope) {
+        //    <!-- $scope is the glue between the controller and view.-->
+        //    $scope.helloWorldMessage = "Hello World";
+        //    $scope.nameOfUserGroup = 'User Group';
+        //}
+    </script>
+</body>
+</html>

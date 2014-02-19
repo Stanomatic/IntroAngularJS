@@ -1,0 +1,79 @@
+﻿<div class="jumbotron">
+    <h1>AngularJS Providers</h1>
+    <p class="lead">
+        Every service of AngularJS is a <a href="http://en.wikipedia.org/wiki/Singleton_pattern" target="_blank">singleton</a>. There are 5 services.
+        1. Value, 2. Constant, 3. Factory, 4. Service, and 5. Provider.
+    </p>
+    <p><a href="http://blog.xebia.com/2013/09/01/differences-between-providers-in-angularjs/?utm_source=ng-newsletter&utm_campaign=872065a391-AngularJS_Newsletter_1_28_141_28_2014&utm_medium=email&utm_term=0_fa61364f13-872065a391-96530633" target="_blank">Differences between providers.</a></p>
+</div>
+<div>
+    <select class="form-control" ng-model="selectedItem" ng-options="p.name for p in providersArray">
+        <option value="">-- Providers --</option>
+    </select>
+    <div ng-switch on="selectedItem.value">
+        <div ng-switch-when=1>
+            <br />
+            <h1>{{myConstant}}</h1>
+            <br />
+            <iframe width="100%" height="300" src="http://jsfiddle.net/Stanomatic/WsxT9/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+        </div>
+        <div ng-switch-when=2>
+            <div>
+                <br />
+                <h1>{{myValue}}</h1>
+                <br />
+
+            </div>
+            <br />
+            <iframe width="100%" height="300" src="http://jsfiddle.net/Stanomatic/P79fL/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+        </div>
+        <div ng-switch-when=3>
+            <br />
+            <p>
+                The provider Factory is the most widely used service. The Factory adds the following abilities:<br />
+                <ul>
+                    <li>to use other services (have dependencies)</li>
+                    <li>service initialization</li>
+                    <li>delayed/lazy initialization</li>
+                </ul>
+            </p>
+            <br />
+            My starting value: {{theCount}}
+            <br />
+            <button class="btn btn-sm btn-primary" ng-click="factoryIncrease(1)">1 +</button>
+            <button class="btn btn-lg btn-success" ng-click="factoryIncrease(5)">5 +</button>
+            <button class="btn btn-lg btn-success" ng-click="factoryDecrease(5)">5 -</button>
+            <button class="btn btn-sm btn-primary" ng-click="factoryDecrease(1)">1 -</button>
+            <br />Increment total = {{providerFactory.theCount}}
+            <hr />
+            <iframe width="100%" height="300" src="http://jsfiddle.net/Stanomatic/6n2qJ/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+        </div>
+        <div ng-switch-when=4>
+            <br />
+            <p>Using a provider <strong>Service</strong> to increment a number. Two controllers are using one <strong>Service</strong>. A provider <strong>Service</strong> can be shared between controllers. A provider <strong>Value</strong> starts the count. </p><br />
+            My starting value: {{theCount}}<br />
+            <button class="btn btn-sm btn-primary" ng-click="serviceIncrease()">1 +</button>
+            <span ng-controller="providerController2">
+                <button class="btn btn-lg btn-success" ng-click="serviceIncrease()">5 +</button>
+                <button class="btn btn-lg btn-success" ng-click="serviceDecrease()">5 -</button>
+            </span>
+            <button class="btn btn-sm btn-primary" ng-click="serviceDecrease()">1 -</button>
+            <br />
+            Increment total = {{providerService.theCount}}
+            <br />
+            <br />
+            <hr />
+            <p><iframe width="100%" height="300" src="http://jsfiddle.net/Stanomatic/EeyHC/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe></p>
+        </div>
+        <div ng-switch-when=5>
+            <br />
+            <p>
+                Used infrequently the <strong>Provider</strong> is a factory that implements a get.
+                Per AngularJS.org -- "You should use the Provider recipe only when you want to expose an API for application-wide configuration that must be made before the
+                application starts. This is usually interesting only for reusable services whose behavior might need to vary slightly between applications."
+                <br />
+                A provider is a configurable factory.
+            </p>
+        </div>
+    </div>
+</div>
